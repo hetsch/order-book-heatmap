@@ -296,22 +296,22 @@ export default class Dashboard {
       window.tooltip.style("opacity", 1)
     }
 
-    const mousemove = function(d) {
+    const mousemove = function(event, d) {
       window.tooltip
         .html(`${d.type}: ${fmtNum(d.value)}`)
-        .style("left", (d3.mouse(this)[0] + 50) + "px")
+        .style("left", (d3.pointer(event)[0] + 50) + "px")
         .style("background-color", d.type === 'ask' ? '#faeaea' : '#eafaea')
         .style("border-color", d.type === 'ask' ? 'red' : 'green')
-        .style("top", (d3.mouse(this)[1] + 45) + "px")
+        .style("top", (d3.pointer(event)[1] + 45) + "px")
     }
 
-    const mousemoveOrderDelta = function(d) {
+    const mousemoveOrderDelta = function(event, d) {
       window.tooltip
         .html(d.msgHTML)
-        .style("left", (d3.mouse(this)[0] + 50) + "px")
+        .style("left", (d3.pointer(event)[0] + 50) + "px")
         .style("background-color", d.type === 'ask' ? '#faeaea' : '#eafaea')
         .style("border-color", d.type === 'ask' ? 'red' : 'green')
-        .style("top", (d3.mouse(this)[1]) + "px")
+        .style("top", (d3.pointer(event)[1]) + "px")
     }
 
     const mouseleave = function(d) {
