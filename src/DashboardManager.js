@@ -1,5 +1,5 @@
-import DataFeed from '../lib/BinanceDataFeed.js';
-import Dashboard from './Dashboard.js';
+import DataFeed from "@lib/BinanceDataFeed.js";
+import Dashboard from "./Dashboard.js";
 
 // TODO handle more than 1 Dashboard at the same time
 // trivial to do, with the cuttent code structure, just
@@ -14,9 +14,29 @@ export default class DashboardManager {
     this.dashboards = [];
   }
 
-  create(el, symbol, updateInterval=250, levels=10, aggregation=1, maxSeriesLength=5, scale='linear', theme='rb') {
+  create(
+    el,
+    symbol,
+    updateInterval = 250,
+    levels = 10,
+    aggregation = 1,
+    maxSeriesLength = 5,
+    scale = "linear",
+    theme = "rb"
+  ) {
     const tickSize = this.feed.getSymbolTickSize(symbol);
-    let dashboard = new Dashboard(el, this.feed, symbol, tickSize, updateInterval, levels, aggregation, maxSeriesLength, scale, theme);
+    let dashboard = new Dashboard(
+      el,
+      this.feed,
+      symbol,
+      tickSize,
+      updateInterval,
+      levels,
+      aggregation,
+      maxSeriesLength,
+      scale,
+      theme
+    );
 
     this.dashboards.push({
       el: el,
@@ -28,8 +48,8 @@ export default class DashboardManager {
         aggregation: aggregation,
         maxSeriesLength: maxSeriesLength,
         scale: scale,
-        theme: theme
-      }
+        theme: theme,
+      },
     });
 
     return this.dashboards.length - 1;

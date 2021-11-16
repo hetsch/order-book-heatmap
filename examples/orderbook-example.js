@@ -1,5 +1,5 @@
-import DataFeed from '../lib/BinanceDataFeed.js';
-import OrderBook from '../lib/BinanceOrderBook.js';
+import DataFeed from "../lib/BinanceDataFeed.js";
+import OrderBook from "../lib/BinanceOrderBook.js";
 
 // check out datafeed-examples.js for more info
 const feed = new DataFeed();
@@ -7,32 +7,32 @@ const feed = new DataFeed();
 // create a lookup table of all available symbols
 let symbols = {};
 feed.getExchangeInfo((data) => {
-  data.symbols.forEach(s => {
-    symbols[ s.symbol ] = s;
-    symbols[ s.symbol ].tick = s.filters[0].tickSize;
-  })
+  data.symbols.forEach((s) => {
+    symbols[s.symbol] = s;
+    symbols[s.symbol].tick = s.filters[0].tickSize;
+  });
 });
 
 // alternatively use symbols.BNBBTC.symbol, symbols.BNBBTC.tick
 //const book = new OrderBook(feed, 'BNBBTC', 0.0000001);
 //const book = new OrderBook(feed, 'ADXBTC', 0.00000001);
 //const book = new OrderBook(feed, 'BTCUSDT', 0.000001 );
-const book = new OrderBook(feed, 'XRPUSDT', 0.0001 );
+const book = new OrderBook(feed, "XRPUSDT", 0.0001);
 
 // periodically call getUpdate for the most recent version of
 // the order book & stats
 setInterval(() => {
   // the OrderBook class reconstructs the tape from live updates
   // the parameters below will return 33 levels of bids & asks
-  const orderBookLevels = 3, aggregationPerLevel = 5;
+  const orderBookLevels = 3,
+    aggregationPerLevel = 5;
   const data = book.getSnapshot(orderBookLevels, aggregationPerLevel);
 
   // snapshot not parsed yet or WS not ready
-  if (!data)
-    return
+  if (!data) return;
 
-  console.log('Bp: ', data.aggBidPrices, 'Ap:: ', data.aggAskPrices);
-  console.log('Bs: ', data.aggBidSizes, 'As: ', data.aggAskSizes);
+  console.log("Bp: ", data.aggBidPrices, "Ap:: ", data.aggAskPrices);
+  console.log("Bs: ", data.aggBidSizes, "As: ", data.aggAskSizes);
 }, 1000);
 
 /*

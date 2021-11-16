@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>D3 OrderBook Heatmap</title>
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="./lightgrid.min.css">
+    <link rel="stylesheet" href="/lightgrid.min.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script type="module" src="./src/index.js"></script>
   </head>
   <body>
     <div class="ui">
       <div class="symbol input-wrapper">
-        <div class="label">
-          symbol
-        </div>
+        <div class="label">symbol</div>
 
         <select class="input">
           <option value="BTCUSDT" selected="selected">BTC/USDT</option>
@@ -25,9 +24,7 @@
       </div>
 
       <div class="update-interval input-wrapper">
-        <div class="label">
-          update every
-        </div>
+        <div class="label">update every</div>
         <select class="input">
           <option value="100">100ms</option>
           <option value="250">250ms</option>
@@ -37,9 +34,7 @@
       </div>
 
       <div class="heatmap-size input-wrapper">
-        <div class="label">
-          max heatmap size
-        </div>
+        <div class="label">max heatmap size</div>
 
         <select class="input">
           <option value="1000">1000 periods</option>
@@ -51,9 +46,7 @@
       </div>
 
       <div class="levels input-wrapper">
-        <div class="label">
-          bid/ask levels
-        </div>
+        <div class="label">bid/ask levels</div>
         <select class="input">
           <option value="10">10</option>
           <option value="20" selected="selected">20</option>
@@ -64,9 +57,7 @@
 
       <!-- TODO: fix aggregation -->
       <div class="aggregation input-wrapper" style="display: none">
-        <div class="label">
-          aggregate over
-        </div>
+        <div class="label">aggregate over</div>
 
         <select class="input">
           <option value="1" selected="selected">no aggregation</option>
@@ -77,9 +68,7 @@
       </div>
 
       <div class="scale input-wrapper">
-        <div class="label">
-          color scale 
-        </div>
+        <div class="label">color scale</div>
 
         <select class="input">
           <option value="linear" selected="selected">linear</option>
@@ -88,9 +77,7 @@
       </div>
 
       <div class="theme input-wrapper">
-        <div class="label">
-          heatmap theme
-        </div>
+        <div class="label">heatmap theme</div>
 
         <select class="input">
           <option value="rb" selected="selected">red & blue</option>
@@ -100,15 +87,22 @@
 
       <div class="github-star">
         <div class="offset"></div>
-        <iframe src="https://ghbtns.com/github-btn.html?user=elenchev&repo=order-book-heatmap&type=star&count=true&size=large" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+        <iframe
+          src="https://ghbtns.com/github-btn.html?user=elenchev&repo=order-book-heatmap&type=star&count=true&size=large"
+          style="border: none"
+          scrolling="0"
+          width="170"
+          height="30"
+          title="GitHub"
+        ></iframe>
       </div>
     </div>
 
     <div class="dashboard row">
       <div class="col-8 heatmap-wrapper">
-        <span class="heatmap"></div>
-      </span>
-      <span class="side col-4">
+        <div class="heatmap"></div>
+      </div>
+      <div class="side col-4">
         <div class="trades" style="display: none">
           <table>
             <thead>
@@ -118,7 +112,6 @@
                 <th>Time</th>
               </tr>
             </thead>
-
             <tbody class="trades-body"></tbody>
           </table>
         </div>
@@ -127,6 +120,5 @@
         </div>
       </div>
     </div>
-
   </body>
 </html>

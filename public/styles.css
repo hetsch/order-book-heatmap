@@ -37,9 +37,9 @@ body {
   padding: 0px 10px 0px 5px;
 }
 
-.ui select:focus{
+.ui select:focus {
   border-color: none;
-  outline:none;
+  outline: none;
 }
 
 .trades {
@@ -98,23 +98,23 @@ th {
 }
 
 .axis-x path {
-  stroke: white
+  stroke: white;
 }
 .axis-x line {
-  stroke: white
+  stroke: white;
 }
 .axis-x text {
-  fill: white
+  fill: white;
 }
 
 .axis-y path {
-  stroke: white
+  stroke: white;
 }
 .axis-y line {
-  stroke: white
+  stroke: white;
 }
 .axis-y text {
-  fill: white
+  fill: white;
 }
 
 /*
@@ -131,10 +131,26 @@ html {
   scrollbar-dark-shadow-color: #646464;
 }
 
-::-webkit-scrollbar { width: 8px; height: 3px;}
-::-webkit-scrollbar-button {  background-color: #000; }
-::-webkit-scrollbar-track {  background-color: #000;}
-::-webkit-scrollbar-track-piece { background-color: #000;}
-::-webkit-scrollbar-thumb { height: 50px; background-color: #666;}
-::-webkit-scrollbar-corner { background-color: #000;}
-::-webkit-resizer { background-color: #000;}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 3px;
+}
+::-webkit-scrollbar-button {
+  background-color: #000;
+}
+::-webkit-scrollbar-track {
+  background-color: #000;
+}
+::-webkit-scrollbar-track-piece {
+  background-color: #000;
+}
+::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: #666;
+}
+::-webkit-scrollbar-corner {
+  background-color: #000;
+}
+::-webkit-resizer {
+  background-color: #000;
+}
